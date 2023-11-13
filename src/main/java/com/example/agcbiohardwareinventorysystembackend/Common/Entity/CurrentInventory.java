@@ -4,4 +4,5 @@ public class CurrentInventory {
 
     //ghjkl
     //ghjkl
+    //wertyui
 }
