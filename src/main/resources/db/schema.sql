@@ -2,23 +2,30 @@
 -- Create the database
 CREATE DATABASE IF NOT EXISTS AGCDB;
 
--- Use the database
+-- Use the database ???
 USE AGCDB;
 
--- Create the current_inventory table
-CREATE TABLE current_inventory (
+CREATE TABLE inventory_in_stock (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    serial_number VARCHAR(255) NOT NULL,
-    type VARCHAR(255) NOT NULL,
-    hdd_serial_number VARCHAR(255) NOT NULL,
+    type VARCHAR(255),
+    model_number VARCHAR(255),
     extra_information VARCHAR(255)
 );
 
--- Create the disposal_inventory table
-CREATE TABLE disposal_inventory (
+CREATE TABLE inventory_location (
+    inventory_id INT,
+    location VARCHAR(255),
+    quantity INT,
+    PRIMARY KEY (inventory_id, location),
+    FOREIGN KEY (inventory_id) REFERENCES inventory_in_stock(id)
+);
+
+CREATE TABLE asset_disposal (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    current_inventory_id INT,
-    FOREIGN KEY (current_inventory_id) REFERENCES current_inventory(id),
-    disposal_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    disposal_reason TEXT
+    type VARCHAR(255),
+    serial_number VARCHAR(255),
+    hdd_serial_number VARCHAR(255),
+    extra_information VARCHAR(255),
+    disposal_date VARCHAR(255),
+    disposal_reason VARCHAR(255)
 );
