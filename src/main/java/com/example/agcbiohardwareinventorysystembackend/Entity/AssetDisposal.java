@@ -12,10 +12,58 @@ public class AssetDisposal {
 
     private String type;
     private String serialNumber;
-    private String hddSerialNumber;
     private String extraInformation;
     private String disposalDate;
     private String disposalReason;
 
     // Constructors, getters, and setters
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getSerialNumber() {
+        return serialNumber;
+    }
+
+    public void setSerialNumber(String serialNumber) {
+        this.serialNumber = serialNumber;
+    }
+
+    public String getExtraInformation() {
+        return extraInformation;
+    }
+
+    public void setExtraInformation(String extraInformation) {
+        this.extraInformation = extraInformation;
+    }
+
+    public String getDisposalDate() {
+        return disposalDate;
+    }
+
+    public void setDisposalDate(String disposalDate) {
+        this.disposalDate = disposalDate;
+    }
+
+    public String getDisposalReason() {
+        return disposalReason;
+    }
+
+    public void setDisposalReason(String disposalReason) {
+        this.disposalReason = disposalReason;
+    }
 }

@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface InventoryLocationRepository extends JpaRepository<InventoryLocation, InventoryLocationId> {
-    // Custom query methods can be added here if needed
+
 }

@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AssetDisposalRepository extends JpaRepository<AssetDisposal, Integer> {
-    // Custom query methods can be added here if needed
+
 }
