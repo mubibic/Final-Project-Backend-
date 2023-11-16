@@ -28,3 +28,4 @@ CREATE TABLE asset_disposal (
     disposal_date VARCHAR(255),
     disposal_reason VARCHAR(255)
 );
+
