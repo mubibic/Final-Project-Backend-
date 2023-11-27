@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/inventory")
 public class InventoryInStockController {
 
@@ -34,7 +35,7 @@ public class InventoryInStockController {
     }
 
     // READ: Get all inventory items
-    @GetMapping
+    @GetMapping("/items")
     public List<InventoryInStock> getAll() {
         return service.findAll();
     }

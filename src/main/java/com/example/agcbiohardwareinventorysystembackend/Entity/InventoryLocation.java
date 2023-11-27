@@ -42,6 +42,9 @@ public class InventoryLocation {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+
+
 }
 
 
