@@ -42,7 +42,7 @@ public class InventoryInStock {
         return model;
     }
 
-    public void setModel(String modelNumber) {
+    public void setModel(String model) {
         this.model = model;
     }
 
