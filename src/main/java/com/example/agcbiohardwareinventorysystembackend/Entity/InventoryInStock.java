@@ -1,6 +1,5 @@
 package com.example.agcbiohardwareinventorysystembackend.Entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.Set;
@@ -16,9 +15,11 @@ public class InventoryInStock {
     private String model;
     private String extraInformation;
 
-    @OneToMany(mappedBy = "inventoryInStock")
-    @JsonBackReference
-    private Set<InventoryLocation> locations;
+    private int quantity;
+
+    private String location;
+
+
 
     // Constructors, getters, and setters
 
@@ -54,11 +55,19 @@ public class InventoryInStock {
         this.extraInformation = extraInformation;
     }
 
-    public Set<InventoryLocation> getLocations() {
-        return locations;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setLocations(Set<InventoryLocation> locations) {
-        this.locations = locations;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

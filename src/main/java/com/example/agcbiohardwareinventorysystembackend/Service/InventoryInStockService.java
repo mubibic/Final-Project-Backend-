@@ -18,6 +18,9 @@ public class InventoryInStockService {
         this.repository = repository;
     }
 
+
+
+
     public InventoryInStock save(InventoryInStock inventoryItem) {
         return repository.save(inventoryItem);
     }
