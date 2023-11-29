@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin( origins = "http://localhost:8080")
 @RequestMapping("/inventory")
 public class InventoryInStockController {
 
@@ -21,7 +21,7 @@ public class InventoryInStockController {
     }
 
     // CREATE: Add a new inventory item
-    @PostMapping
+    @PostMapping("/items")
     public InventoryInStock add(@RequestBody InventoryInStock inventoryItem) {
         return service.save(inventoryItem);
     }
