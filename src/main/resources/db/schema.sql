@@ -23,3 +23,11 @@ CREATE TABLE asset_disposal (
     disposal_reason VARCHAR(255)
 );
 
+CREATE TABLE login (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255),
+    password VARCHAR(255),
+    name VARCHAR(255)
+);
+
+

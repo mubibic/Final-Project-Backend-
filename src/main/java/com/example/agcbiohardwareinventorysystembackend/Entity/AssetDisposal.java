@@ -16,8 +16,6 @@ public class AssetDisposal {
     private String disposalDate;
     private String disposalReason;
 
-    // Constructors, getters, and setters
-
 
     public int getId() {
         return id;

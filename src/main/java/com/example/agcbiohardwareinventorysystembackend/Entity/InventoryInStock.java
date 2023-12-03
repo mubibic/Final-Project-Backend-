@@ -20,9 +20,6 @@ public class InventoryInStock {
     private String location;
 
 
-
-    // Constructors, getters, and setters
-
     public int getId() {
         return id;
     }
