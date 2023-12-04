@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin( origins = "http://localhost:8080")
+@CrossOrigin( origins = "*")
 @RequestMapping("/inventory")
 public class InventoryInStockController {
 
@@ -27,7 +27,7 @@ public class InventoryInStockController {
     }
 
     // READ: Get a single inventory item by ID
-    @GetMapping("/{id}")
+    @GetMapping("/items/{id}")
     public ResponseEntity<InventoryInStock> getById(@PathVariable int id) {
         return service.findById(id)
                 .map(ResponseEntity::ok)
@@ -41,7 +41,7 @@ public class InventoryInStockController {
     }
 
     // UPDATE: Update an existing inventory item
-    @PutMapping("/{id}")
+    @PutMapping("/items/{id}")
     public ResponseEntity<InventoryInStock> update(@PathVariable int id, @RequestBody InventoryInStock inventoryItem) {
         if (!service.existsById(id)) {
             return ResponseEntity.notFound().build();
@@ -49,6 +49,7 @@ public class InventoryInStockController {
         inventoryItem.setId(id);
         return ResponseEntity.ok(service.save(inventoryItem));
     }
+
 
     // DELETE: Remove an inventory item
     @DeleteMapping("/{id}")
