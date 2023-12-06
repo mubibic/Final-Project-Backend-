@@ -60,4 +60,15 @@ public class InventoryInStockController {
         service.deleteById(id);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/items/filter")
+    public List<InventoryInStock> filterItems(
+            @RequestParam(required = false) String type,
+            @RequestParam(required = false) String model,
+            @RequestParam(required = false) String extraInformation,
+            @RequestParam(required = false) String location) {
+        return service.filterItems(type, model, extraInformation, location);
+    }
+
+
 }
