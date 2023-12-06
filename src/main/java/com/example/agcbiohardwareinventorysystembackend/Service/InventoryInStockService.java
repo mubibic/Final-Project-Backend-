@@ -18,8 +18,19 @@ public class InventoryInStockService {
         this.repository = repository;
     }
 
-
-
+    public List<InventoryInStock> filterItems(String type, String model, String extraInformation, String location) {
+        if (type != null && !type.isEmpty()) {
+            return repository.findByType(type);
+        } else if (model != null && !model.isEmpty()) {
+            return repository.findByModel(model);
+        } else if (extraInformation != null && !extraInformation.isEmpty()) {
+            return repository.findByExtraInformation(extraInformation);
+        } else if (location != null && !location.isEmpty()) {
+            return repository.findByLocation(location);
+        } else {
+            return repository.findAll();
+        }
+    }
 
     public InventoryInStock save(InventoryInStock inventoryItem) {
         return repository.save(inventoryItem);
@@ -45,5 +56,4 @@ public class InventoryInStockService {
         repository.deleteById(id);
     }
 
-    // Additional methods like search or custom logic can be added here
 }
