@@ -16,12 +16,12 @@ public class LoginController {
     private LoginService loginService;
 
     @PostMapping("")
-    public ResponseEntity<String> login(@RequestBody Login user) {
+    public ResponseEntity<Login> login(@RequestBody Login user) {
         Login validatedUser = loginService.validateUser(user.getUsername(), user.getPassword());
         if (validatedUser != null) {
-            return ResponseEntity.ok("User authenticated");
+            return ResponseEntity.ok(validatedUser);
         } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
         }
     }
 
