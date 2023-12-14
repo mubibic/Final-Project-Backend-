@@ -1,7 +1,9 @@
 package com.example.agcbiohardwareinventorysystembackend.Service;
 
 import com.example.agcbiohardwareinventorysystembackend.Entity.AssetDisposal;
+import com.example.agcbiohardwareinventorysystembackend.Entity.DisposedAssetItems;
 import com.example.agcbiohardwareinventorysystembackend.Repository.AssetDisposalRepository;
+import com.example.agcbiohardwareinventorysystembackend.Repository.DisposedAssetItemsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +14,12 @@ import java.util.Optional;
 public class AssetDisposalService {
 
     private final AssetDisposalRepository repository;
+    private final DisposedAssetItemsRepository dRepository;
 
     @Autowired
-    public AssetDisposalService(AssetDisposalRepository repository) {
+    public AssetDisposalService(AssetDisposalRepository repository, DisposedAssetItemsRepository dRepository) {
         this.repository = repository;
+        this.dRepository = dRepository;
     }
 
     public AssetDisposal save(AssetDisposal assetDisposal) {
@@ -42,5 +46,29 @@ public class AssetDisposalService {
         repository.deleteById(id);
     }
 
-    // Additional methods as required
+    public void transferToDisposed(int assetDisposalId) {
+        // Retrieve the asset from asset_disposal table
+        AssetDisposal assetDisposal = repository.findById(assetDisposalId)
+                .orElseThrow(() -> new RuntimeException("Asset not found"));
+
+        // Convert AssetDisposal to DisposedAssetItem
+        DisposedAssetItems disposedAssetItem = convertToDisposedAssetItem(assetDisposal);
+
+        // Save in disposed_asset_items table
+        dRepository.save(disposedAssetItem);
+
+        // Remove from asset_disposal table
+        repository.deleteById(assetDisposalId);
+    }
+
+    private DisposedAssetItems convertToDisposedAssetItem(AssetDisposal assetDisposal) {
+        // Assuming both entities have the same fields
+        return new DisposedAssetItems(
+                // Map fields from AssetDisposal to DisposedAssetItem
+        );
+    }
+
+
+
+
 }

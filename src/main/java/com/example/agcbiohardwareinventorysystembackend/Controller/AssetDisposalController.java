@@ -58,4 +58,12 @@ public class AssetDisposalController {
         service.deleteById(id);
         return ResponseEntity.ok().build();
     }
+
+    @PostMapping("/transfer-to-disposed/{id}")
+    public ResponseEntity<?> transferToDisposed(@PathVariable int id) {
+        service.transferToDisposed(id);
+        return ResponseEntity.ok().build();
+    }
+
+
 }
