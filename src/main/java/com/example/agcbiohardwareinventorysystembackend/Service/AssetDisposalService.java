@@ -62,10 +62,14 @@ public class AssetDisposalService {
     }
 
     private DisposedAssetItems convertToDisposedAssetItem(AssetDisposal assetDisposal) {
-        // Assuming both entities have the same fields
-        return new DisposedAssetItems(
-                // Map fields from AssetDisposal to DisposedAssetItem
-        );
+        DisposedAssetItems disposedAssetItem = new DisposedAssetItems();
+        disposedAssetItem.setType(assetDisposal.getType());
+        disposedAssetItem.setSerialNumber(assetDisposal.getSerialNumber());
+        disposedAssetItem.setExtraInformation(assetDisposal.getExtraInformation());
+        disposedAssetItem.setDisposalDate(assetDisposal.getDisposalDate());
+        disposedAssetItem.setDisposalReason(assetDisposal.getDisposalReason());
+
+        return disposedAssetItem;
     }
 
 

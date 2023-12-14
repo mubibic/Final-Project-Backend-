@@ -5,9 +5,8 @@ import com.example.agcbiohardwareinventorysystembackend.Entity.DisposedAssetItem
 import com.example.agcbiohardwareinventorysystembackend.Service.AssetDisposalService;
 import com.example.agcbiohardwareinventorysystembackend.Service.DisposedAssetItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +24,11 @@ public class DisposedAssetItemsController {
     @GetMapping
     public List<DisposedAssetItems> getAll() {
         return service.findAll();
+    }
+
+    @PostMapping("/transfer-back-from-disposed/{id}")
+    public ResponseEntity<?> transferBackFromDisposed(@PathVariable int id) {
+        service.transferBackFromDisposed(id);
+        return ResponseEntity.ok().build();
     }
 }
