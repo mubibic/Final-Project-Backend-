@@ -22,6 +22,22 @@ public class DisposedAssetItemsService {
         this.repository = repository;
     }
 
+    public List<DisposedAssetItems> filterItems(String type, String serialNumber, String extraInformation, String disposalDate, String disposalReason) {
+        if (type != null && !type.isEmpty()) {
+        return dRepository.findByType(type);
+    } else if (serialNumber != null && !serialNumber.isEmpty()) {
+        return dRepository.findBySerialNumber(serialNumber);
+    } else if (extraInformation != null && !extraInformation.isEmpty()) {
+        return dRepository.findByExtraInformation(extraInformation);
+    } else if (disposalDate != null && !disposalDate.isEmpty()) {
+        return dRepository.findByDisposalDate(disposalDate);
+    } else if (disposalReason != null && !disposalReason.isEmpty()) {
+        return dRepository.findByDisposalReason(disposalReason);
+    } else {
+        return dRepository.findAll();
+    }
+}
+
     public List<DisposedAssetItems> findAll() {
         return dRepository.findAll();
     }

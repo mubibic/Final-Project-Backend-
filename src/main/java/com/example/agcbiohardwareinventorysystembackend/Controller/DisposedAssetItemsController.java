@@ -2,6 +2,7 @@ package com.example.agcbiohardwareinventorysystembackend.Controller;
 
 import com.example.agcbiohardwareinventorysystembackend.Entity.AssetDisposal;
 import com.example.agcbiohardwareinventorysystembackend.Entity.DisposedAssetItems;
+import com.example.agcbiohardwareinventorysystembackend.Entity.InventoryInStock;
 import com.example.agcbiohardwareinventorysystembackend.Service.AssetDisposalService;
 import com.example.agcbiohardwareinventorysystembackend.Service.DisposedAssetItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,4 +32,15 @@ public class DisposedAssetItemsController {
         service.transferBackFromDisposed(id);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/items/filter")
+    public List<DisposedAssetItems> filterItems(
+            @RequestParam(required = false) String type,
+            @RequestParam(required = false) String serialNumber,
+            @RequestParam(required = false) String extraInformation,
+            @RequestParam(required = false) String disposalDate,
+            @RequestParam(required = false) String disposalReason) {
+        return service.filterItems(type, serialNumber, extraInformation, disposalDate, disposalReason);
+    }
+
 }
