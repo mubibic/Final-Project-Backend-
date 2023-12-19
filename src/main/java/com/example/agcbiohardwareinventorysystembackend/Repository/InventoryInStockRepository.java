@@ -12,4 +12,5 @@ public interface InventoryInStockRepository extends JpaRepository<InventoryInSto
     List<InventoryInStock> findByModel(String model);
     List<InventoryInStock> findByExtraInformation(String extraInformation);
     List<InventoryInStock> findByLocation(String location);
+    InventoryInStock findByTypeAndModelAndExtraInformationAndLocation(String type, String model, String extraInformation, String location);
 }

@@ -33,7 +33,16 @@ public class InventoryInStockService {
     }
 
     public InventoryInStock save(InventoryInStock inventoryItem) {
-        return repository.save(inventoryItem);
+
+        InventoryInStock existingItem = repository.findByTypeAndModelAndExtraInformationAndLocation(inventoryItem.getType(), inventoryItem.getModel(), inventoryItem.getExtraInformation(), inventoryItem.getLocation());
+        if(existingItem != null){
+            //System.out.println("This item exists in DB ");
+            existingItem.setQuantity(existingItem.getQuantity() + inventoryItem.getQuantity());
+            return repository.save(existingItem);
+        } else {
+            //System.out.println("This item does not exist in DB");
+            return repository.save(inventoryItem);
+        }
     }
 
     public Optional<InventoryInStock> findById(int id) {
