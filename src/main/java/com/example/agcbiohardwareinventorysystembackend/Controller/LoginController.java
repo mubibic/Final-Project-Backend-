@@ -7,8 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+// This notation is used to tell Spring that this class is a controller
 @RestController
+// This notation is used to allow cross-origin requests from the frontend to the backend, the star means that all origins are allowed
 @CrossOrigin(origins = "*")
+// This notation defines the base URL for all the requests in this controller
 @RequestMapping("/login")
 public class LoginController {
 

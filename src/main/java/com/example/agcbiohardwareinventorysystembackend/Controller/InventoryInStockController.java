@@ -8,13 +8,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+// This annotation is used to tell Spring that this class is a controller
 @RestController
+// This annotation is used to allow cross-origin requests from the frontend to the backend
 @CrossOrigin(origins = "*")
+// This annotation defines the base URL for all the requests in this controller
 @RequestMapping("/inventory")
 public class InventoryInStockController {
 
     private final InventoryInStockService service;
 
+    // This is used to tell Spring to inject the InventoryInStockService class into this class,
+    // so that we can use the methods in the InventoryInStockService class to perform CRUD operations on the inventory table in the database
     @Autowired
     public InventoryInStockController(InventoryInStockService service) {
         this.service = service;

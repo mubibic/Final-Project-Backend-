@@ -73,6 +73,7 @@ public class InventoryInStockService {
     public InventoryInStock update(InventoryInStock inventoryItem) {
         return repository.save(inventoryItem); // Assuming you handle update logic via save
     }
+
     // This method is used to delete an inventory item from the database by its ID
     public void deleteById(int id) {
         repository.deleteById(id);

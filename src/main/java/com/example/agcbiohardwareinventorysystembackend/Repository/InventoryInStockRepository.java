@@ -14,8 +14,12 @@ import java.util.List;
 public interface InventoryInStockRepository extends JpaRepository<InventoryInStock, Integer> {
     // These methods are used to find inventory items by their attributes
     List<InventoryInStock> findByType(String type);
+
     List<InventoryInStock> findByModel(String model);
+
     List<InventoryInStock> findByExtraInformation(String extraInformation);
+
     List<InventoryInStock> findByLocation(String location);
+
     InventoryInStock findByTypeAndModelAndExtraInformationAndLocation(String type, String model, String extraInformation, String location);
 }

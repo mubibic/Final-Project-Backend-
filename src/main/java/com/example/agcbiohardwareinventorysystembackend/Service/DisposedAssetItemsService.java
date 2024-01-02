@@ -59,6 +59,7 @@ public class DisposedAssetItemsService {
         repository.save(assetDisposal);
         dRepository.deleteById(disposedAssetItemId);
     }
+
     // This method is used to convert a disposed asset item from the disposed_asset_items table to the asset_disposal table
     private AssetDisposal convertToAssetDisposal(DisposedAssetItems disposedItem) {
         AssetDisposal assetDisposal = new AssetDisposal();

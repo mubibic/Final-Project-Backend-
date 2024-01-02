@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+// This annotation defines the base URL(endpoint) for all the requests in this controller
 @RequestMapping("/disposed-items")
 public class DisposedAssetItemsController {
 

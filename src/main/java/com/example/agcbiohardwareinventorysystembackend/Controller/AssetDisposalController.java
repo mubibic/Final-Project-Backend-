@@ -10,16 +10,16 @@ import java.util.List;
 
 // This notation is used to tell Spring that this class is a controller
 @RestController
-// This is used to allow cross origin requests from the frontend to the backend to be able to connect
+// This notation defines the base URL for all the requests in this controller
 @RequestMapping("/assetDisposal")
 // This class is asset disposal controller class that handles all the requests for the asset disposal table
-//in the database and returns the appropriate response to the frontend
+// in the database and returns the appropriate response to the frontend
 public class AssetDisposalController {
 
     private final AssetDisposalService service;
 
     // This is used to tell Spring to inject the AssetDisposalService class into this class,
-//so that we can use the methods in the AssetDisposalService class to perform CRUD operations on the asset disposal table in the database
+    // so that we can use the methods in the AssetDisposalService class to perform CRUD operations on the asset disposal table in the database
     @Autowired
     public AssetDisposalController(AssetDisposalService service) {
         this.service = service;
@@ -41,7 +41,7 @@ public class AssetDisposalController {
     }
 
     // This method returns a list of all the asset disposal records in the database
-    //if there are any records in the database and an empty list if there are no records in the database
+    // if there are any records in the database and an empty list if there are no records in the database
     @GetMapping
     public List<AssetDisposal> getAll() {
         return service.findAll();
@@ -71,7 +71,7 @@ public class AssetDisposalController {
 
     // This method moves an asset disposal item to the disposed table in the database
     @PostMapping("/transfer-to-disposed/{id}")
-    //The question mark in the response entity is used to tell Spring that the response entity can be of any type
+    // The question mark in the response entity is used to tell Spring that the response entity can be of any type
     public ResponseEntity<?> transferToDisposed(@PathVariable int id) {
         service.transferToDisposed(id);
         return ResponseEntity.ok().build();

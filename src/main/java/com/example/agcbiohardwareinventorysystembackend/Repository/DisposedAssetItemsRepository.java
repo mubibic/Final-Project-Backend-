@@ -16,8 +16,12 @@ import java.util.List;
 public interface DisposedAssetItemsRepository extends JpaRepository<DisposedAssetItems, Integer> {
     // These methods are used to find disposed asset items by their attributes
     List<DisposedAssetItems> findByType(String type);
+
     List<DisposedAssetItems> findBySerialNumber(String model);
+
     List<DisposedAssetItems> findByExtraInformation(String extraInformation);
+
     List<DisposedAssetItems> findByDisposalDate(String disposalDate);
+
     List<DisposedAssetItems> findByDisposalReason(String disposalReason);
 }
