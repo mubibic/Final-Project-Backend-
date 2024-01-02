@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin( origins = "*")
+@CrossOrigin(origins = "*")
 @RequestMapping("/inventory")
 public class InventoryInStockController {
 
@@ -61,6 +61,9 @@ public class InventoryInStockController {
         return ResponseEntity.ok().build();
     }
 
+    // This method is for getting the filtered list of inventory items from the database based on the parameters
+    // passed in the request URL from the frontend to the backend and returns the filtered list of inventory items to the frontend as a response
+    // The RequestParam annotation is used to get the parameters passed in the request URL
     @GetMapping("/items/filter")
     public List<InventoryInStock> filterItems(
             @RequestParam(required = false) String type,

@@ -6,9 +6,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.util.List;
+// This class is for the Disposed Asset Items entity in the database
 
+// This annotation is used to mark the class as an entity class which means that it will be mapped to a table in the database
 @Entity
 public class DisposedAssetItems {
+    // This annotation is used to mark the primary key of the table in the database,
+    // and it is auto incremented by 1 for each new record added to the table
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

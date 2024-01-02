@@ -1,4 +1,4 @@
-
+#  This is the SQL script to create the database and tables for the Asset Management System
 -- Create the database
 CREATE DATABASE IF NOT EXISTS AGCDB;
 

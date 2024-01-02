@@ -3,10 +3,13 @@ package com.example.agcbiohardwareinventorysystembackend.Entity;
 import jakarta.persistence.*;
 
 import java.util.Set;
+// This class is for the Inventory In Stock entity in the database
 
-
+// This annotation is used to mark the class as an entity class which means that it will be mapped to a table in the database
 @Entity
 public class InventoryInStock {
+    // This annotation is used to mark the primary key of the table in the database,
+    // and it is auto incremented by 1 for each new record added to the table
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

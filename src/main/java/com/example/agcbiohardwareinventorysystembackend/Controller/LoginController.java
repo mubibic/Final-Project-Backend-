@@ -15,6 +15,9 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
+    // This method is for validating the user credentials passed in the request body from the frontend
+    // to the backend and returns the validated user object to the frontend as a response if
+    // the user credentials are valid and returns a 401 unauthorized response if the user credentials are invalid or if the user does not exist in the database
     @PostMapping("")
     public ResponseEntity<Login> login(@RequestBody Login user) {
         Login validatedUser = loginService.validateUser(user.getUsername(), user.getPassword());
@@ -25,5 +28,5 @@ public class LoginController {
         }
     }
 
-    // Other endpoints, such as registration
+    // Other endpoints, such as registration, can be added here
 }

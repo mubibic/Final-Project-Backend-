@@ -33,6 +33,7 @@ public class DisposedAssetItemsController {
         return ResponseEntity.ok().build();
     }
 
+    // This method is for getting the filtered list of disposed items from the database based on the parameters passed in the request URL from the frontend to the backend and returns the filtered list of disposed items to the frontend as a response
     @GetMapping("/items/filter")
     public List<DisposedAssetItems> filterItems(
             @RequestParam(required = false) String type,

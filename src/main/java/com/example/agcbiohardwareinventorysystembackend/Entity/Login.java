@@ -4,12 +4,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+// This class is for the Login entity in the database
 
+//This annotation is used to mark the class as an entity class which means that it will be mapped to a table in the database
 @Entity
 public class Login {
-
+    // This annotation is used to mark the primary key of the table in the database, and it is auto incremented by 1 for each new record added to the table
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
+    // @GeneratedValue is used to specify the strategy used for the primary key generation for the table in the database
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String username;
